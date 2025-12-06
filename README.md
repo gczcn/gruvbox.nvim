@@ -21,19 +21,25 @@ Neovim 0.8.0+
 ## Using `packer`
 
 ```lua
-use { "ellisonleao/gruvbox.nvim" }
+use { "gczcn/gruvbox.nvim" }
 ```
 
 ## Using `lazy.nvim`
 
 ```lua
-{ "ellisonleao/gruvbox.nvim", priority = 1000 , config = true, opts = ...}
+{ "gczcn/gruvbox.nvim", priority = 1000 , config = true, opts = ...}
 ```
 
 ## Using `vim-plug`
 
 ```vim
-Plug 'ellisonleao/gruvbox.nvim'
+Plug "gczcn/gruvbox.nvim"
+```
+
+## Using `vim.pack`
+
+```lua
+vim.pack.add({ "https://github.com/gczcn/gruvbox.nvim" })
 ```
 
 # Basic Usage
@@ -85,6 +91,16 @@ vim.cmd("colorscheme gruvbox")
 ```
 
 **VERY IMPORTANT**: Make sure to call setup() **BEFORE** calling the colorscheme command, to use your custom configs
+
+If you're using [lualine](https://github.com/nvim-lualine/lualine.nvim):
+
+```lua
+require("lualine").setup({
+  options = {
+    theme = "gruvbox_custom", -- Use the gruvbox_custom theme from this fork
+  },
+})
+```
 
 ## Overriding
 
