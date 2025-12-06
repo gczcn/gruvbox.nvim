@@ -97,7 +97,12 @@ If you're using [lualine](https://github.com/nvim-lualine/lualine.nvim):
 ```lua
 require("lualine").setup({
   options = {
-    theme = "gruvbox_custom", -- Use the gruvbox_custom theme from this fork
+    theme = function()
+      if vim.g.colors_name == 'gruvbox' then
+        return 'gruvbox_custom' -- Use the gruvbox_custom theme from this fork
+      end
+      return 'auto'
+    end,
   },
 })
 ```
