@@ -8,6 +8,7 @@ Table of Contents                             *gruvbox.nvim-table-of-contents*
   - Using packer                        |gruvbox.nvim-installing-using-packer|
   - Using lazy.nvim                  |gruvbox.nvim-installing-using-lazy.nvim|
   - Using vim-plug                    |gruvbox.nvim-installing-using-vim-plug|
+  - Using vim.pack                    |gruvbox.nvim-installing-using-vim-pack|
 3. Basic Usage                                      |gruvbox.nvim-basic-usage|
 4. Configuration                                  |gruvbox.nvim-configuration|
   - Overriding                         |gruvbox.nvim-configuration-overriding|
@@ -50,7 +51,14 @@ USING LAZY.NVIM                      *gruvbox.nvim-installing-using-lazy.nvim*
 USING VIM-PLUG                        *gruvbox.nvim-installing-using-vim-plug*
 
 >vim
-    Plug 'ellisonleao/gruvbox.nvim'
+    Plug "ellisonleao/gruvbox.nvim"
+<
+
+
+USING VIM-PLUG                        *gruvbox.nvim-installing-using-vim-pack*
+
+>lua
+    vim.pack.add({ "https://github.com/gczcn/gruvbox.nvim" })
 <
 
 
@@ -107,6 +115,21 @@ Additional settings for gruvbox are:
 
 **VERY IMPORTANT**Make sure to call setup() **BEFORE** calling the colorscheme
 command, to use your custom configs
+
+If you're using lualine:
+
+>lua
+    require("lualine").setup({
+      options = {
+        theme = function()
+          if vim.g.colors_name == 'gruvbox' then
+            return 'gruvbox_custom' -- Use the gruvbox_custom theme from this fork
+          end
+          return 'auto'
+        end,
+      },
+    })
+<
 
 
 OVERRIDING                             *gruvbox.nvim-configuration-overriding*
